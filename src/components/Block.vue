@@ -2,6 +2,12 @@
   <div class="block">Click me</div>
 </template>
 
+<script>
+export default {
+  props: ['delay'],
+};
+</script>
+
 <style>
 .block {
   width: 400px;

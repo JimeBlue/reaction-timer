@@ -2,12 +2,14 @@
   <h1>Ninja Reaction Timer</h1>
   <!-- on click call the function start -->
   <button @click="start">play</button>
+  <Block v-if="isPlaying" />
 </template>
 
 <script>
+import Block from './components/Block';
 export default {
   name: 'App',
-  components: {},
+  components: { Block },
   data() {
     return {
       // By default is false, it changes to true when the play btn is clicked
