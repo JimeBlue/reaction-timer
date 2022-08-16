@@ -1,11 +1,31 @@
 <template>
   <h1>Ninja Reaction Timer</h1>
+  <!-- on click call the function start -->
+  <button @click="start" :disabled="isPlaying">play</button>
+  <!-- Show Block if user is playing and pass delay to Block component -->
+  <Block v-if="isPlaying" :delay="delay" />
 </template>
 
 <script>
+import Block from './components/Block';
 export default {
   name: 'App',
-  components: {},
+  components: { Block },
+  data() {
+    return {
+      // By default is false, it changes to true when the play btn is clicked
+      isPlaying: false,
+      //The amount of time there´s going to be before Block appears on the screen
+      delay: null,
+    };
+  },
+  methods: {
+    // On click this function updates delay to something between 2 and 4 seconds and sets isPlaying to true
+    start() {
+      this.delay = 2000 + Math.random() * 5000;
+      this.isPlaying = true;
+    },
+  },
 };
 </script>
 
