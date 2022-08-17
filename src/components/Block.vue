@@ -1,6 +1,5 @@
 <template>
   <div class="block" v-if="showBlock" @click="stopTimer">Click me</div>
-  <!-- EXPLANATION: We want to show the user the reaction time inside the Results component eventually. This component will be placed below the Block component in App.vue. To show the reaction time inside the Results component, we need the reactionTime data that is stored inside the Block component.In other words, we need to pass it up to the App component and then pass it down to the Results component. We can do this by emiting a custom event from the Block component.  -->
 </template>
 
 <script>
@@ -31,7 +30,6 @@ export default {
     stopTimer() {
       clearInterval(this.timer);
       console.log(this.reactionTime);
-      // N°1) Emit custom event to pass reactionTime to App.vue. By the way, the name of the custom event here is "end", but I can call it whatever I want
       this.$emit('end', this.reactionTime);
     },
   },
